@@ -15,5 +15,5 @@ import java.util.List;
 public class Categorie extends AbstractType{
 
     @OneToMany(mappedBy = "categorie")
-    List<Article> listArticles;
+    private List<Article> listArticles;
 }

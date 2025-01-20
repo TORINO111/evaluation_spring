@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -22,6 +24,8 @@ public class Article extends AbstractType{
 
     @ManyToOne
     @JoinColumn(name = "categorie_id")
-    Categorie categorie;
+    private Categorie categorie;
 
+    @OneToMany(mappedBy = "article")
+    private List<DetailCommande> details;
 }

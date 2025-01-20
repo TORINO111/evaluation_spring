@@ -1,9 +1,15 @@
 package com.auchan.gestionauchan.data.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 @Entity
 @Table(name= "clients")
 public class Client {
@@ -20,8 +26,8 @@ public class Client {
     @Column
     private String pays;
 
-    @OneToMany(mappedBy = "client")
-    List<Commande> commandes;
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+    private List<Commande> commandes;
 
 
 
